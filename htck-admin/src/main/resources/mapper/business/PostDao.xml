@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.htck.modules.business.dao.PostDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.htck.modules.business.entity.PostEntity" id="postMap">
+        <result property="postId" column="post_id"/>
+        <result property="postName" column="post_name"/>
+        <result property="hireNumber" column="hire_number"/>
+        <result property="salaryRange" column="salary_range"/>
+        <result property="department" column="department"/>
+        <result property="workCity" column="work_city"/>
+        <result property="postDuty" column="post_duty"/>
+        <result property="postRequirement" column="post_requirement"/>
+        <result property="deliveryMail" column="delivery_mail"/>
+        <result property="publishTime" column="publish_time"/>
+        <result property="postState" column="post_state"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+
+    <select id="list" parameterType="com.htck.modules.business.entity.PostQueryEntity" resultType="com.htck.modules.business.entity.PostEntity">
+        select * from post
+        <where>
+            post_state = 1
+            <if test="postName != null and postName != ''">
+                and post_name like concat('%',#{postName},'%')
+            </if>
+        </where>
+        order by publish_time
+    </select>
+
+</mapper>
