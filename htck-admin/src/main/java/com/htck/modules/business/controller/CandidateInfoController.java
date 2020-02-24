@@ -112,6 +112,7 @@ public class CandidateInfoController {
             e.printStackTrace();
         }
         candidateInfo.setCurriculumVitaePath(dest.getPath());
+        candidateInfo.setApplyDate(new Date());
         candidateInfoService.save(candidateInfo);
         return R.ok();
     }

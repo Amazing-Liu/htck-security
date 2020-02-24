@@ -29,7 +29,7 @@ public class CandidateInfoEntity implements Serializable {
 	 * 申请的职位名称
 	 */
 	@TableField(exist = false)
-	private Integer postName;
+	private String postName;
 	/**
 	 * 申请人名字
 	 */
