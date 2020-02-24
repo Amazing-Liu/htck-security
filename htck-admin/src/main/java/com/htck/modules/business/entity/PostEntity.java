@@ -2,6 +2,7 @@ package com.htck.modules.business.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -59,6 +60,7 @@ public class PostEntity implements Serializable {
 	/**
 	 * 职位发布时间
 	 */
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date publishTime;
 	/**
 	 * 职位状态：0-未激活，1-激活
